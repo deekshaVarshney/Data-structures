@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <limits.h>
+struct node{
+    int data;
+    struct node *link;
+};
+struct node *head=NULL;
+void push(int x)
+{
+     
+    struct node* p=(struct node*) malloc (sizeof(struct node));
+    if(p==NULL)
+        {
+        printf("overflow");
+    return;
+    }
+    p->data=x;
+  //  p->link=NULL;
+    p->link=head;
+    head=p;                //here head acts like top
+    
+}
+int pop()
+    {
+    int item;
+    struct node *p;
+   
+    if(head==NULL){
+        printf("underflow");
+        return;
+    }
+    item=head->data;
+    p=head;
+    head=head->link;
+    free(p);
+    return item;
+}
+
+int main()
+    {
+    int x,value,T,t=0,n,i;
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+scanf("%d",&value);
+     push(value);
+    }
+  
+ for(i=0;i<n;i++)
+     printf("%d \n",pop());
+    
+    return 0;
+}
