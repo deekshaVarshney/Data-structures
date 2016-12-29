@@ -2,7 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
-int q[100000],stack2[100000];
+int q[100000];
 int front=-1,rear=-1,size=0;
 int enqueue(int item)
     {
@@ -16,7 +16,7 @@ int enqueue(int item)
     else
         {
         q[rear]=item;
-        size=size+1;
+        
         return -1;
     }
 }
@@ -25,45 +25,17 @@ int dequeue()
     int item;
     if(front==rear)
         {
-        printf("Aueue is empty");
+        printf("Queue is empty");
         return -1;
     }
     else
         {
         front=(front+1);
         item=q[front];
-        size=size-1;
-        rear=rear-1;
-        front=front-1;
+        
+        
+      
+       
         return item;
     }
-}
-int main()
-    {
-    int x,value,T,t=0;
-scanf("%d",&T);
- 
- do{  
- scanf("%d",&x);
-  t++; 
-    switch(x){
-       
-        case 1:
-//printf("enter value to be pushed");
-scanf("%d",&value);enqueue(value);
-                break;
-        case 2:dequeue();
-                break;
-        case 3:printf("%d\n",q[front]);
-                break;
-case 4:break;       
- default: printf("Invalid case");
-                break;
- 
-    } 
- }while(T!=t);
-   
-
-    
-    return 0;
 }
